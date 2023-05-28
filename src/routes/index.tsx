@@ -6,7 +6,7 @@ export default component$(() => {
     <>
       <h1>Hi 👋</h1>
       <p>
-        Can't wait to see what you build with qwik!
+        This is Sample App, created with Empty App starter.
         <br />
         Happy coding.
       </p>
