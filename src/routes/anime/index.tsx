@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import { routeLoader$, routeAction$, Form } from '@builder.io/qwik-city';
+import { routeLoader$, routeAction$, Form, Link } from '@builder.io/qwik-city';
 
 
 export const useAnimeQuote = routeLoader$(async () => {
@@ -35,6 +35,7 @@ export default component$(() => {
         <button name="vote" value="up">👍</button>
         <button name="vote" value="down">👎</button>
       </Form>
+      <Link href="/">Homepage</Link>
     </section>
   );
 });
