@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import { routeLoader$ } from '@builder.io/qwik-city';
+import { routeLoader$, routeAction$, Form } from '@builder.io/qwik-city';
 
 
 export const useAnimeQuote = routeLoader$(async () => {
@@ -13,8 +13,16 @@ export const useAnimeQuote = routeLoader$(async () => {
   };
 });
 
+
+export const useAnimeQuoteVoteAction = routeAction$((props) => {
+  console.log('[vote]', props);
+});
+
+
 export default component$(() => {
   const animeQuote = useAnimeQuote();
+  const animeQuoteVoteAction = useAnimeQuoteVoteAction();
+
   return (
     <section class="section bright">
       <h3>Anime Quote</h3><br/>
@@ -22,6 +30,11 @@ export default component$(() => {
       <p>
           <i>"{animeQuote.value.character}"</i> in <i>"{animeQuote.value.anime}"</i>
       </p>
+      <Form action={animeQuoteVoteAction}>
+        <input type="hidden" name="anime" value={animeQuote.value.anime} />
+        <button name="vote" value="up">👍</button>
+        <button name="vote" value="down">👎</button>
+      </Form>
     </section>
   );
 });
