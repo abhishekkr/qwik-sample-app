@@ -34,6 +34,8 @@ npm start
 >
 > * `useTask$()` without [tracking](https://qwik.builder.io/docs/components/tasks/#track), behaves like `mount` hook so no `on-mount` hook in Qwik
 
+* creating `index.css` at `/anime` component path, `import styles in './index.css?inline'` and `useStylesScoped$(styles);`
+
 
 _WIP_
 

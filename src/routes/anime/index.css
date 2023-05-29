@@ -1,0 +1,30 @@
+.title {
+  font-weight: bold;
+  font-size: 2em;
+  margin: 1em;
+}
+
+.menu {
+  float: right;
+}
+
+.animeQuote {
+  font-weight: bold;
+}
+
+.animeCharacter {
+  font-style: italic;
+}
+
+.animeName {
+  font-style: italic;
+}
+
+.animeQuoteDetails {
+  float: right;
+}
+
+form {
+  margin: 0.5em;
+  float: right;
+}

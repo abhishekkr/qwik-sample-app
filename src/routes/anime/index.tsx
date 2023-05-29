@@ -1,5 +1,17 @@
-import { component$, useSignal, useTask$ } from '@builder.io/qwik';
-import { routeLoader$, routeAction$, server$, Form, Link } from '@builder.io/qwik-city';
+import {
+  component$,
+  useSignal,
+  useStylesScoped$,
+  useTask$,
+} from '@builder.io/qwik';
+import {
+  routeLoader$,
+  routeAction$,
+  server$,
+  Form,
+  Link
+} from '@builder.io/qwik-city';
+import styles from "./index.css?inline";
 
 
 export const useAnimeQuote = routeLoader$(async () => {
@@ -20,6 +32,7 @@ export const useAnimeQuoteVoteAction = routeAction$((props) => {
 
 
 export default component$(() => {
+  useStylesScoped$(styles);
   const isFavSignal = useSignal(false);
   const animeQuote = useAnimeQuote();
   const animeQuoteVoteAction = useAnimeQuoteVoteAction();
@@ -34,21 +47,27 @@ export default component$(() => {
 
   return (
     <section class="section bright">
-      <h3>Anime Quote</h3><br/>
-      <b>{animeQuote.value.quote}</b><br/>
-      <p>
-          <i>"{animeQuote.value.character}"</i> in
-          <i>"{animeQuote.value.anime}" </i>
+      <section>
+        <span class="title">Anime Quote</span>
+        <Link href="/" class="menu">Homepage</Link>
+      </section><br/>
+      <section class="animeQuote">
+        <span>{animeQuote.value.quote}</span>
+      </section><br/>
+      <section class="animeQuoteDetails">
+          <span class="animeCharacter">"{animeQuote.value.character}"</span> in
+          <span class="animeName">"{animeQuote.value.anime}" </span>
           <button onClick$={() => (isFavSignal.value = !isFavSignal.value)}>
             {isFavSignal.value ? '❤️' : '♡'}
           </button>
-      </p>
-      <Form action={animeQuoteVoteAction}>
-        <input type="hidden" name="anime" value={animeQuote.value.anime} />
-        <button name="vote" value="up">👍</button>
-        <button name="vote" value="down">👎</button>
-      </Form>
-      <Link href="/">Homepage</Link>
+      </section><br/>
+      <section class="animeVoteForm">
+        <Form action={animeQuoteVoteAction}>
+          <input type="hidden" name="anime" value={animeQuote.value.anime} />
+          <button name="vote" value="up">👍</button>
+          <button name="vote" value="down">👎</button>
+        </Form>
+      </section><br/>
     </section>
   );
 });
