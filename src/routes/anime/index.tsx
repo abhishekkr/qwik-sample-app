@@ -1,4 +1,4 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useSignal } from '@builder.io/qwik';
 import { routeLoader$, routeAction$, Form, Link } from '@builder.io/qwik-city';
 
 
@@ -20,6 +20,7 @@ export const useAnimeQuoteVoteAction = routeAction$((props) => {
 
 
 export default component$(() => {
+  const isFavSignal = useSignal(false);
   const animeQuote = useAnimeQuote();
   const animeQuoteVoteAction = useAnimeQuoteVoteAction();
 
@@ -28,7 +29,11 @@ export default component$(() => {
       <h3>Anime Quote</h3><br/>
       <b>{animeQuote.value.quote}</b><br/>
       <p>
-          <i>"{animeQuote.value.character}"</i> in <i>"{animeQuote.value.anime}"</i>
+          <i>"{animeQuote.value.character}"</i> in
+          <i>"{animeQuote.value.anime}" </i>
+          <button onClick$={() => (isFavSignal.value = !isFavSignal.value)}>
+            {isFavSignal.value ? '❤️' : '♡'}
+          </button>
       </p>
       <Form action={animeQuoteVoteAction}>
         <input type="hidden" name="anime" value={animeQuote.value.anime} />

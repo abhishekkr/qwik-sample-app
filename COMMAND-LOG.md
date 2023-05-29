@@ -23,3 +23,7 @@ npm start
 > as /anime would show static quote since the page would make call during generate & keep that as there is no SSR
 
 * adding quick `Link` tags in `/` & `/anime` components for cross-browsing
+
+* reactive state is created with `useSignal()` (takes value, for reactive signal) or `useStore()` (takes object as init value & reactivity extends to nested objects/arrays)
+
+> `useSignal()` to signal fav-ing an Anime in sample-app
