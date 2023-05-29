@@ -27,3 +27,14 @@ npm start
 * reactive state is created with `useSignal()` (takes value, for reactive signal) or `useStore()` (takes object as init value & reactivity extends to nested objects/arrays)
 
 > `useSignal()` to signal fav-ing an Anime in sample-app
+
+* Qwik has 3 lifecycle stages: `Task` (run before rendering & state change; run sequentially; block render), `Render` (runs after Task, before VisibleTask), `VisibleTask` (runs when component become visible on browser)
+
+> * `useTask$()` hooks to exec on component creation; runs at least once in server/browser based on where initially rendered.. if tracking state change, will run again (always in browser)
+>
+> * `useTask$()` without [tracking](https://qwik.builder.io/docs/components/tasks/#track), behaves like `mount` hook so no `on-mount` hook in Qwik
+
+
+_WIP_
+
+---

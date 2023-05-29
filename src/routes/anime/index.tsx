@@ -1,5 +1,5 @@
-import { component$, useSignal } from '@builder.io/qwik';
-import { routeLoader$, routeAction$, Form, Link } from '@builder.io/qwik-city';
+import { component$, useSignal, useTask$ } from '@builder.io/qwik';
+import { routeLoader$, routeAction$, server$, Form, Link } from '@builder.io/qwik-city';
 
 
 export const useAnimeQuote = routeLoader$(async () => {
@@ -23,6 +23,14 @@ export default component$(() => {
   const isFavSignal = useSignal(false);
   const animeQuote = useAnimeQuote();
   const animeQuoteVoteAction = useAnimeQuoteVoteAction();
+
+  useTask$(({track}) => {
+    track(() => isFavSignal.value);
+    console.log('FAV (isomorphic)', isFavSignal.value);
+    server$(() => {
+      console.log('FAV (server)', isFavSignal.value);
+    })(); // if not called, would remain as dead code without warning
+  });
 
   return (
     <section class="section bright">
