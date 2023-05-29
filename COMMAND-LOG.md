@@ -36,7 +36,8 @@ npm start
 
 * creating `index.css` at `/anime` component path, `import styles in './index.css?inline'` and `useStylesScoped$(styles);`
 
+* `npm run preview` would create a preview production build; network tab shows bundles instantly delivered from [ServiceWorker cache](https://qwik.builder.io/docs/advanced/speculative-module-fetching/)
 
-_WIP_
+> Service Workers aid with connectivity loss issues. Can set an app to use cached asset first, **offline first**. [more](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 
 ---
