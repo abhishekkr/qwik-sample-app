@@ -10,9 +10,11 @@ export default component$(() => {
       <h1>Hi 👋</h1>
       <p>
         This is Sample App, created with Empty App starter.
-        <br />
-        <Link href="/anime">Anime Quote</Link>
       </p>
+      <ul>
+        <li><Link href="/random-user">Random User, with routeLoader$</Link></li>
+        <li><Link href="/use-action">Sample For, with routeAction$</Link></li>
+      </ul>
     </>
   );
 });

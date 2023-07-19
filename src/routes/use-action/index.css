@@ -1,0 +1,19 @@
+.title {
+  font-weight: bold;
+  font-size: 2em;
+  margin: 1em;
+}
+
+.subtitle {
+  font-weight: bold;
+  font-size: 1em;
+  margin: 2em;
+}
+
+.menu {
+  float: right;
+}
+
+form {
+  margin: 2em;
+}
