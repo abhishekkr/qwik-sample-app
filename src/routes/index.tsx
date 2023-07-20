@@ -14,6 +14,7 @@ export default component$(() => {
       <ul>
         <li><Link href="/random-user">Random User, with routeLoader$</Link></li>
         <li><Link href="/use-action">Sample For, with routeAction$</Link></li>
+        <li><Link href="/journal">Sample For, with Prisma</Link></li>
       </ul>
     </>
   );

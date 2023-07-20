@@ -1,0 +1,14 @@
+
+
+form {
+  margin: 0.5em;
+}
+
+label {
+  margin: 0.5em;
+  display: block;
+}
+
+input {
+  margin-left: 1em;
+}

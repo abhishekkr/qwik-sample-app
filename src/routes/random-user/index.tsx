@@ -6,9 +6,7 @@ import {
 } from '@builder.io/qwik';
 import {
   routeLoader$,
-  routeAction$,
   server$,
-  Form,
   Link
 } from '@builder.io/qwik-city';
 import VoteForm from "../../components/vote_form";
@@ -17,6 +15,9 @@ import styles from "./index.css?inline";
 import { fetch } from "undici";
 
 /*
+ * doc: https://qwik.builder.io/docs/route-loader/
+ *
+ *
 import { fetch, setGlobalDispatcher, Agent, Pool } from "undici";
 
 setGlobalDispatcher(

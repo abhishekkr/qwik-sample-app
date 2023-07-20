@@ -40,4 +40,11 @@ npm start
 
 > Service Workers aid with connectivity loss issues. Can set an app to use cached asset first, **offline first**. [more](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 
+* Prisma support for DB/Models, with Zod for validations.
+
+> * `npm run qwik add prisma` to add Prisma support, adds default `user` schema & routes.. which I cleaned before proceeding
+> * added `Journal` model, `npx prisma migrate dev --name journal` to generate migration SQL and applying it
+> * `npx prisma migrate reset` to reset DB state, drops and re-create (for dev only, as incurrs data loss)
+> * with `routeAction$` and prisma client Form data can be idiomatically processed
+
 ---

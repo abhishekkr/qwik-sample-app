@@ -10,6 +10,11 @@ import {
 } from '@builder.io/qwik-city';
 import styles from "./index.css?inline";
 
+/*
+ * doc: https://qwik.builder.io/docs/action/
+ *
+ */
+
 export const useDelayedCall = routeAction$(async (data, requestEvent) => {
   const delay = function(time) {
     return new Promise(resolve => setTimeout(resolve, time));
